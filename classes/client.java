@@ -8,6 +8,8 @@ public class client {
     // attributes
     private String firstName, lastName, adress, birthday, city;
     private int cin, phoneNumber;
+    private int balance ; 
+    private int password  , passwordHash ; 
 
     public client() {
     }
@@ -153,4 +155,46 @@ public class client {
         }
 
     }
+
+    // balance getter 
+    public int checkBalance(){
+        return balance ; 
+
+    }
+
+    
+    
+    
+    public void deposit(int  addedAmout)) {
+     
+     balance =+addedAmout; 
+
+     // update to sql 
+    }
+    
+
+   public void widhraw(int outAmout){
+    balance =- outAmout ; 
+    //update to sql 
+   }
+
+   public void transaction ()
+   {
+       // first  crypt methode 
+   }
+
+
+
+   //crypt password 
+   //md5 encryption 
+   
+  private  void   encrypt(int password){
+
+      //gonction   crypt  password 
+        
+
+
+      passwordHash= output ; 
+
+  }
 }
