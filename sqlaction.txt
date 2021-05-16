@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS `clientData`;
+CREATE DATABASE `clientData` ; 
+USE `clientData`;
+CREATE TABLE clientData (
+    firstName varchar(255),
+    lastName  varchar(255),
+    adress    varchar(255),
+    birthday  varchar(255),
+    city      varchar(255), 
+    cin       int , 
+    phoneNumber int ,
+    hashPw varchar(255)
+);
+INSERT INTO `clientData` VALUES ('adam','boualleiguie','matar','13061997','sfax',11111111,27289750,'hashtest');

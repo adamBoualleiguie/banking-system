@@ -23,8 +23,16 @@ public class bank {
         //storing new object inside clientData db ; 
         c1.addClientToDb(c1);*/
 
-        client c2 = new client ("majd","rekik","berlin","07021994","germany",1154575775,457575757) ; 
+        client c2 = new client ("Ahmed","abdelkafi","berlin","07021994","germany",1154575775,457575757,"testing") ; 
         c2.addClientToDb(c2);
+       
+       /*
+       // this methode is to  hash to md5 
+        String pw ; 
+       pw=  md5Crypt.md5Encryption("3ezdine"); 
+       System.out.println(pw) ; 
+      //this methode is to verify pw via hash 
+       md5Crypt.verifyHash("3ezdine", "aec81ec77ea9f33a30657c8fb1215056"); */
     }
     
 }

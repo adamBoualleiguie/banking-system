@@ -9,13 +9,14 @@ public class client {
     private String firstName, lastName, adress, birthday, city;
     private int cin, phoneNumber;
     private int balance ; 
-    private int password  , passwordHash ; 
+    private String hashPw ; 
+    
 
     public client() {
     }
 
     public client(String firstName, String lastName, String adress, String birthday, String city, int cin,
-            int phoneNumber) {
+            int phoneNumber, String pw ) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.adress = adress;
@@ -23,6 +24,7 @@ public class client {
         this.city = city;
         this.cin = cin;
         this.phoneNumber = phoneNumber;
+        this.hashPw= md5Crypt.md5Encryption(pw); 
     }
 
     public String getFirstName() {
@@ -116,6 +118,11 @@ public class client {
         return this;
     }
 
+
+// hash getter
+    public String gethashPw(){
+        return hashPw ; 
+    }
     @Override
     public String toString() {
         return "{" + " firstName='" + getFirstName() + "'" + ", lastName='" + getLastName() + "'" + ", adress='"
@@ -128,7 +135,7 @@ public class client {
     // we can make constructor directly log in db and submit data
 
     public void addClientToDb(client c) {
-        final String INSERT_SQL_QUERY = "INSERT INTO clientdata(firstName,lastName,adress,birthday,city,cin,phoneNumber) VALUES(?,?,?,?,?,?,?)";
+        final String INSERT_SQL_QUERY = "INSERT INTO clientdata(firstName,lastName,adress,birthday,city,cin,phoneNumber,hashPw) VALUES(?,?,?,?,?,?,?,?)";
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -147,6 +154,7 @@ public class client {
             ps.setString(5, c.getCity());
             ps.setInt(6, c.getCin());
             ps.setInt(7, c.getPhoneNumber());
+            ps.setString(8,c.gethashPw()); 
 
             ps.execute();
             con.commit();
@@ -165,36 +173,5 @@ public class client {
     
     
     
-    public void deposit(int  addedAmout)) {
-     
-     balance =+addedAmout; 
-
-     // update to sql 
-    }
-    
-
-   public void widhraw(int outAmout){
-    balance =- outAmout ; 
-    //update to sql 
-   }
-
-   public void transaction ()
-   {
-       // first  crypt methode 
-   }
-
-
-
-   //crypt password 
-   //md5 encryption 
-   
-  private  void   encrypt(int password){
-
-      //gonction   crypt  password 
-        
-
-
-      passwordHash= output ; 
-
-  }
+  
 }
